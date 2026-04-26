@@ -1,9 +1,13 @@
 from abc import ABC, abstractmethod
+from bs4 import BeautifulSoup
 from dataclasses import dataclass
 from pathlib import Path
 
 from src.core.network import NetworkManager
 
+
+def parse_html(html: str) -> BeautifulSoup:
+    return BeautifulSoup(html, "html.parser")
 
 @dataclass(slots=True, frozen=True)
 class DownloadResult:

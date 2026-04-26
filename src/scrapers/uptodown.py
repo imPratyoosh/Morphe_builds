@@ -1,9 +1,8 @@
 import json
 from pathlib import Path
-from bs4 import BeautifulSoup
 
 from src.core.network import NetworkManager
-from src.scrapers.base import BaseScraper, DownloadResult
+from src.scrapers.base import BaseScraper, DownloadResult, parse_html
 
 
 class UptodownError(Exception):
@@ -20,13 +19,13 @@ class UptodownScraper(BaseScraper):
         self._resp_pkg_html = self.net.get(f"{url}/download")
 
     def get_pkg_name(self) -> str:
-        soup = BeautifulSoup(self._resp_pkg_html, "html.parser")
+        soup = parse_html(self._resp_pkg_html)
         if td := soup.select_one("tr.full:nth-child(1) > td:nth-child(3)"):
             return td.get_text(strip=True)
         raise UptodownError("Uptodown: package name not found")
 
     def get_versions(self, allow_beta: bool = False) -> list[str]:
-        soup = BeautifulSoup(self._resp_html, "html.parser")
+        soup = parse_html(self._resp_html)
         return [el.get_text(strip=True) for el in soup.select(".version") if el.get_text(strip=True)]
 
     def download(self, url: str, version: str, dest: Path, arch: str, dpi: str) -> DownloadResult:
@@ -34,7 +33,7 @@ class UptodownScraper(BaseScraper):
             arch = "armeabi-v7a"
         apparch = ["arm64-v8a, armeabi-v7a, x86_64", "arm64-v8a, armeabi-v7a, x86, x86_64", "arm64-v8a, armeabi-v7a"] + ([arch] if arch != "all" else [])
 
-        soup = BeautifulSoup(self._resp_html, "html.parser")
+        soup = parse_html(self._resp_html)
         app_tag = soup.select_one("#detail-app-name")
         if not app_tag or not app_tag.get("data-code"):
             raise UptodownError("Uptodown: data-code not found")
@@ -45,14 +44,14 @@ class UptodownScraper(BaseScraper):
         is_bundle = version_url_data.get("kindFile") == "xapk"
 
         resp = self.net.get(ver_url)
-        soup2 = BeautifulSoup(resp, "html.parser")
+        soup2 = parse_html(resp)
         btn_variants = soup2.select_one(".button.variants")
         data_version = btn_variants.get("data-version") if btn_variants else None
 
         if data_version:
             resp, is_bundle = self._pick_variant_file(url, data_code, str(data_version), apparch)
 
-        dl_btn = BeautifulSoup(resp, "html.parser").select_one("#detail-download-button")
+        dl_btn = parse_html(resp).select_one("#detail-download-button")
         if not dl_btn or not dl_btn.get("data-url"):
             raise UptodownError("Uptodown: #detail-download-button not found")
 
@@ -77,7 +76,7 @@ class UptodownScraper(BaseScraper):
     def _pick_variant_file(self, url: str, data_code: str, data_version: str, apparch: list[str]) -> tuple[str, bool]:
         base_url = "/".join(url.split("/")[:-1])
         files_html = json.loads(self.net.get(f"{base_url}/app/{data_code}/version/{data_version}/files")).get("content", "")
-        content = BeautifulSoup(files_html, "html.parser").select_one(".content")
+        content = parse_html(files_html).select_one(".content")
         if not content:
             raise UptodownError("Uptodown: files content not found")
 

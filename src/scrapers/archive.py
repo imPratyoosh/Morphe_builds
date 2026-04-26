@@ -1,9 +1,8 @@
 import re
 from pathlib import Path
-from bs4 import BeautifulSoup
 
 from src.core.network import NetworkManager
-from src.scrapers.base import BaseScraper, DownloadResult
+from src.scrapers.base import BaseScraper, DownloadResult, parse_html
 
 _ARCH_SUFFIX = re.compile(r"-(?:all|arm64-v8a|arm-v7a)\.(?:apk|apkm|xapk)$")
 
@@ -18,7 +17,7 @@ class ArchiveScraper(BaseScraper):
 
     def fetch_metadata(self, url: str) -> None:
         html = self.net.get(url)
-        soup = BeautifulSoup(html, "html.parser")
+        soup = parse_html(html)
         self._file_list = [
             a["href"] for a in soup.find_all("a", href=True)
             if not str(a["href"]).startswith(("?", "/", "http"))
