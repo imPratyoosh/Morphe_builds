@@ -1,6 +1,8 @@
 import os
+import re
 import shutil
 import signal
+import subprocess
 import sys
 from pathlib import Path
 
@@ -73,10 +75,24 @@ def _require_ci(cmd: str) -> None:
     if os.getenv("GITHUB_ACTIONS") != "true":
         abort(f"'{cmd}' is only available in GitHub Actions")
 
+def _require_java(min_version: int = 25) -> None:
+    if not shutil.which("java"):
+        abort(f"Java not found. Please install Java {min_version} or higher")
+
+    result = subprocess.run(["java", "-version"], capture_output=True, text=True)
+    match = re.search(r'version "(\d+)', result.stderr)
+    if not match:
+        abort("Could not determine Java version")
+
+    version = int(match.group(1))
+    if version < min_version:
+        abort(f"Java {version} found, but Java {min_version}+ is required")
+
 def main() -> None:
     signal.signal(signal.SIGINT, _sigint_handler)
+    _require_java()
     _load_dotenv()
-    
+
     try:
         match sys.argv[1:]:
             case []:
