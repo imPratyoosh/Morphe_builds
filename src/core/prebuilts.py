@@ -1,7 +1,6 @@
 import json
 import re
 from dataclasses import dataclass
-from functools import cache
 from pathlib import Path
 
 from src.core.config import TEMP_DIR
@@ -30,7 +29,6 @@ def get_highest_ver(versions: list[str]) -> str:
         raise ValueError("Empty version list")
     return max(clean, key=_ver_key)
 
-@cache
 def fetch_prebuilts(cli_src: str, cli_ver: str, patches_src: str, patches_ver: str, net: NetworkManager) -> Prebuilts:
     patches_org = patches_src.split("/")[0]
     cl_dir = TEMP_DIR / patches_org.lower()

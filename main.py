@@ -78,6 +78,8 @@ def _sigint_handler(sig: int, frame: object) -> None:
     epr("Interrupted by user")
     for tmp in TEMP_DIR.rglob("tmp.*"):
         shutil.rmtree(tmp, ignore_errors=True)
+    for ks in TEMP_DIR.glob("*.keystore"):
+        ks.unlink(missing_ok=True)
     os._exit(130)
 
 def _require_ci(cmd: str) -> None:

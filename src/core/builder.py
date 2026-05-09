@@ -4,7 +4,7 @@ import shutil
 import tempfile
 import zipfile
 from collections.abc import Iterator
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from copy import replace
 from pathlib import Path
 
@@ -12,7 +12,7 @@ from src.core.config import BUILD_DIR, TEMP_DIR, AppEntry, Config, parse_app_ent
 from src.core.logger import abort, epr, pr
 from src.core.network import NetworkManager
 from src.core.patcher import PatcherCLI, PatcherError
-from src.core.prebuilts import APKSIGNER, fetch_prebuilts, get_highest_ver
+from src.core.prebuilts import APKSIGNER, Prebuilts, fetch_prebuilts, get_highest_ver
 from src.scrapers.base import AppMetadata, BaseScraper
 
 
@@ -177,11 +177,13 @@ def run_build(data: dict[str, object], config: Config, net: NetworkManager, targ
         entries = [replace(e, arch=arch_override) for e in entries]
 
     build_mode = os.getenv("BUILD_MODE", "")
-    futures: list = []
+    futures: list[Future[str | None]] = []
     ks_path: Path | None = None
+    prebuilts_cache: dict[tuple[str, str, str, str], Prebuilts] = {}
     if ks_b64 := os.getenv("KEYSTORE_BASE64", ""):
-        ks_path = TEMP_DIR / "ks.keystore"
-        ks_path.write_bytes(base64.b64decode(ks_b64))
+        with tempfile.NamedTemporaryFile(dir=TEMP_DIR, suffix=".keystore", delete=False) as tf:
+            tf.write(base64.b64decode(ks_b64))
+            ks_path = Path(tf.name)
 
     try:
         with ThreadPoolExecutor(max_workers=config.parallel_jobs) as pool:
@@ -191,9 +193,12 @@ def run_build(data: dict[str, object], config: Config, net: NetworkManager, targ
                     continue
 
                 patches_ver = "dev" if build_mode == "dev" else entry.patches_version
+                prebuilts_key = (entry.cli_source, entry.cli_version, entry.patches_source, patches_ver)
 
                 try:
-                    prebuilts = fetch_prebuilts(cli_src=entry.cli_source, cli_ver=entry.cli_version, patches_src=entry.patches_source, patches_ver=patches_ver, net=net)
+                    if prebuilts_key not in prebuilts_cache:
+                        prebuilts_cache[prebuilts_key] = fetch_prebuilts(cli_src=entry.cli_source, cli_ver=entry.cli_version, patches_src=entry.patches_source, patches_ver=patches_ver, net=net)
+                    prebuilts = prebuilts_cache[prebuilts_key]
                 except Exception as exc:
                     epr(f"Could not get prebuilts for '{entry.table}': {exc}")
                     continue

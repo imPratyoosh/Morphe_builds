@@ -40,6 +40,21 @@ def _parse_versions_output(output: str) -> list[str]:
         return [re.sub(r"\s*\(.*?\)", "", v).strip() for v in match.group(1).splitlines() if v.strip()]
     return []
 
+def _redact_args(args: list[str | Path]) -> list[str]:
+    redacted: list[str] = []
+    for a in args:
+        s = str(a)
+        if "keystore-password=" in s or "keystore-entry-password=" in s:
+            key, _, _ = s.partition("=")
+            redacted.append(f"{key}=***")
+        elif s.startswith("--keystore="):
+            _, _, val = s.partition("=")
+            p = Path(val)
+            redacted.append(f"--keystore={p.parent.name}/{p.name}")
+        else:
+            redacted.append(s)
+    return redacted
+
 class PatcherCLI:
     def __init__(self, cli_jar: Path, patches_mpp: Path, apksigner: Path, ks_path: Path | None = None, sig_file: Path = Path("sig.txt")) -> None:
         self.cli_jar = cli_jar
@@ -117,7 +132,7 @@ class PatcherCLI:
         elif Path("morphe.keystore").exists():
             ks_args = ["--keystore=morphe.keystore"]
 
-        pr(" ".join(str(a) for a in ["java", *base_cmd, *ks_args, *patch_args]))
+        pr(" ".join(_redact_args(["java", *base_cmd, *ks_args, *patch_args])))
         try:
             _run_java(*base_cmd, *ks_args, *patch_args, capture=False)
         except PatcherError:
