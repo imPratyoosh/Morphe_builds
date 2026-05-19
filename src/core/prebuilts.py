@@ -20,7 +20,8 @@ class Prebuilts:
     patches_mpp: Path
 
 def _ver_key(ver: str) -> tuple[int, ...]:
-    return tuple(int(x) for x in re.findall(r"\d+", ver)) or (0,)
+    base = ver.split("-")[0]
+    return tuple(int(x) for x in re.findall(r"\d+", base)) or (0,)
 
 def get_highest_ver(versions: list[str]) -> str:
     if not (clean := [v.strip() for v in versions if v.strip()]):
