@@ -129,13 +129,16 @@ jobs:
           shopt -s nullglob; apks=(./build/*.apk)
           [[ ${#apks[@]} -gt 0 ]] && gh release upload "$TAG" "${apks[@]}" --clobber || true
 
-      - name: Upload build log as artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: log-${{ inputs.patch_source }}-${{ matrix.id }}${{ matrix.arch && format('-{0}', matrix.arch) || '' }}
-          path: build.md
-          if-no-files-found: warn
-          retention-days: 1
+      - name: Upload build log to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.prepare.outputs.tag }}
+          LOG_NAME: log-${{ inputs.patch_source }}-${{ matrix.id }}${{ matrix.arch && format('-{0}', matrix.arch) || '' }}.md
+        run: |
+          if [ -f build.md ]; then
+            cp build.md "$LOG_NAME"
+            gh release upload "$TAG" "$LOG_NAME" --clobber || true
+          fi
 
   release:
     needs: [prepare, run]
@@ -159,25 +162,29 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
-      - name: Check if any artifacts exist
+      - name: Check and download logs
         id: check_artifacts
         continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.prepare.outputs.tag }}
         run: |
-          if gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --jq '.artifacts[] | select(.name | startswith("log-${{ inputs.patch_source }}-")) | .name' | grep -q .; then
+          mkdir -p logs
+          gh release download "$TAG" --pattern 'log-${{ inputs.patch_source }}-*.md' --dir logs
+          
+          shopt -s nullglob
+          logs=(logs/*.md)
+          if [ ${#logs[@]} -gt 0 ]; then
+            for f in "${logs[@]}"; do
+              dir_name="logs/$(basename "$f" .md)"
+              mkdir -p "$dir_name"
+              mv "$f" "$dir_name/build.md"
+            done
             echo "has_artifacts=true" >> "$GITHUB_OUTPUT"
           else
             echo "has_artifacts=false" >> "$GITHUB_OUTPUT"
             exit 1
           fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Download all logs
-        if: steps.check_artifacts.outputs.has_artifacts == 'true'
-        uses: actions/download-artifact@v8
-        with:
-          pattern: log-${{ inputs.patch_source }}-*
-          path: logs
 
       - name: Combine logs
         if: steps.check_artifacts.outputs.has_artifacts == 'true'
@@ -203,3 +210,14 @@ jobs:
             PRERELEASE_FLAG="--prerelease"
           fi
           gh release edit "$TAG" --draft=false --notes "$BODY" $PRERELEASE_FLAG
+
+      - name: Cleanup log assets from release
+        if: steps.check_artifacts.outputs.has_artifacts == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.prepare.outputs.tag }}
+        run: |
+          assets=$(gh release view "$TAG" --json assets --jq '.assets[] | select(.name | startswith("log-")) | .name')
+          for asset in $assets; do
+            gh release delete-asset "$TAG" "$asset" -y
+          done
