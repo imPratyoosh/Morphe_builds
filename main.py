@@ -9,8 +9,7 @@ from pathlib import Path
 
 from src.core.builder import run_build
 from src.core.config import BUILD_DIR, CONFIG_PATH, TEMP_DIR, VALID_ARCHES, AppEntry, load_toml, parse_app_entries, parse_config
-from src.core.gh_utils import check_builds_needed, combine_logs, get_matrix
-from src.core.logger import IS_GITHUB, abort, epr, pr
+from src.core.logger import abort, epr, pr
 from src.core.network import NetworkManager
 
 _shutting_down = False
@@ -41,10 +40,6 @@ def _require_java(min_version: int = 21) -> None:
     version = int(match.group(1))
     if version < min_version:
         abort(f"Java {version} found, but Java {min_version}+ is required")
-
-def _require_ci(cmd: str) -> None:
-    if not IS_GITHUB:
-        abort(f"'{cmd}' is only available in GitHub Actions")
 
 def _build(target_app: str | None = None, arch_override: str | None = None) -> int:
     _require_java()
@@ -102,20 +97,8 @@ def main() -> None:
     match sys.argv[1:]:
         case []:
             sys.exit(_build())
-        case ["get-matrix"]:
-            _require_ci("get-matrix")
-            check_builds_needed()
-        case ["get-matrix-force"]:
-            _require_ci("get-matrix")
-            check_builds_needed(force_all=True)
-        case ["get-matrix", source]:
-            _require_ci("get-matrix")
-            get_matrix(source)
         case ["clear"]:
             sys.exit(_clear())
-        case ["combine-logs", *args]:
-            _require_ci("combine-logs")
-            combine_logs(logs_dir=Path(args[0] if args else "logs"))
         case [target, *rest] if not rest or rest[0] in VALID_ARCHES:
             sys.exit(_build(target_app=target, arch_override=rest[0] if rest else None))
         case [_, arch]:

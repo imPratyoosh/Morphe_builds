@@ -1,12 +1,16 @@
 import json
 import os
+import sys
 from datetime import datetime
-from pathlib import Path
 
 from src.core.config import CONFIG_PATH, load_toml, parse_app_entries, parse_config
-from src.core.logger import abort, epr, wpr
+from src.core.logger import IS_GITHUB, abort, epr
 from src.core.network import NetworkManager, ResourceNotFoundError
 
+
+def _require_ci(script: str) -> None:
+    if not IS_GITHUB:
+        abort(f"'{script}' is only available in GitHub Actions")
 
 def _fetch_latest_release(source: str, net: NetworkManager) -> tuple[str, str]:
     scheme, clean_src = source.split(":", 1)
@@ -40,7 +44,6 @@ def get_matrix(source: str) -> None:
     data = load_toml(CONFIG_PATH)
     main_cfg = parse_config(data)
     source_lower = source.lower()
-
     patches_source = ""
     has_changelog_keywords = False
     for entry in parse_app_entries(data, main_cfg):
@@ -136,54 +139,17 @@ def check_builds_needed(force_all: bool = False) -> None:
 
     print(json.dumps(brands_to_build))
 
-def _parse_log_file(log: Path, green_lines: list[str], collected: list[str]) -> str:
-    microg_line = ""
-    capturing = False
-    current: list[str] = []
-    with log.open("r", encoding="utf-8") as f:
-        for raw in f:
-            line = raw.strip()
-            if not line:
-                continue
+def main() -> None:
+    _require_ci("matrix.py")
+    match sys.argv[1:]:
+        case ["get-matrix"]:
+            check_builds_needed()
+        case ["get-matrix-force"]:
+            check_builds_needed(force_all=True)
+        case ["get-matrix", source]:
+            get_matrix(source)
+        case _:
+            abort("Usage: matrix.py get-matrix [source] | get-matrix-force")
 
-            if line.startswith("- 🟢"):
-                green_lines.append(f"{line}  ")
-            elif not microg_line and line.startswith("▶️") and "MicroG" in line:
-                microg_line = line
-
-            if line.startswith(">") and "CLI:" in line:
-                capturing = True
-                current = []
-
-            if capturing:
-                current.append(f"{line}  ")
-                if line.startswith("[") and "Changelog]" in line:
-                    collected.append("\n".join(current))
-                    capturing = False
-
-    if capturing:
-        wpr(f"Unclosed CLI section in '{log}', changelog end marker not found")
-
-    return microg_line
-
-def combine_logs(logs_dir: Path | str) -> None:
-    logs = sorted(Path(logs_dir).rglob("build*.md"))
-    if not logs:
-        return
-
-    green_lines: list[str] = []
-    collected: list[str] = []
-    microg_line = ""
-    for log in logs:
-        m_line = _parse_log_file(log, green_lines, collected)
-        if not microg_line:
-            microg_line = m_line
-
-    if green_lines:
-        print("\n".join(green_lines), end="\n\n")
-
-    if microg_line:
-        print(microg_line, end="\n\n")
-
-    if unique := list(dict.fromkeys(collected)):
-        print("\n\n".join(unique))
+if __name__ == "__main__":
+    main()

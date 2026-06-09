@@ -60,7 +60,7 @@ jobs:
         id: set-matrix
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "matrix=$(uv run main.py get-matrix '${{ inputs.patch_source }}')" >> "$GITHUB_OUTPUT"
+        run: echo "matrix=$(uv run python -m src.scripts.matrix get-matrix '${{ inputs.patch_source }}')" >> "$GITHUB_OUTPUT"
 
   run:
     needs: prepare
@@ -174,7 +174,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ needs.prepare.outputs.version }}
         run: |
-          uv run main.py combine-logs logs | sed "s/{TAG}/$TAG/g" > final.md
+          uv run python -m src.scripts.logs combine-logs logs | sed "s/{TAG}/$TAG/g" > final.md
           gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false --title "$TAG" --notes-file final.md
 
       - name: Delete empty draft if no APKs
