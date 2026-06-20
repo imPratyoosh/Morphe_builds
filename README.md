@@ -1,13 +1,15 @@
 ## [nvbangg/builder-for-morphe](https://github.com/nvbangg/builder-for-morphe)
 
+[![Stars](https://img.shields.io/github/stars/nvbangg/builder-for-morphe?label=Star%20this%20repo%20if%20useful%20%E2%AD%90&logo=github-sponsors)](https://github.com/nvbangg/builder-for-morphe)　[![GitHub](https://img.shields.io/badge/nvbangg-black?style=social&logo=github)](https://github.com/nvbangg)
+
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Google+Sans&size=25&duration=3000&pause=2000&color=&center=true&vCenter=true&random=false&width=550&lines=%F0%9F%93%A6+Pre-built+APKs+from+various+patch+sources)](#apps-list)<br>
-[![Stars](https://img.shields.io/github/stars/nvbangg/builder-for-morphe?label=Star%20this%20repo%20if%20useful%20%E2%AD%90&logo=github-sponsors)](https://github.com/nvbangg/builder-for-morphe)　[![GitHub](https://img.shields.io/badge/nvbangg-black?style=social&logo=github)](https://github.com/nvbangg)<br>
+[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Google+Sans&size=25&duration=3000&pause=2000&color=&center=true&vCenter=true&random=false&width=550&lines=%F0%9F%93%A6+Pre-built+APKs+from+various+patch+sources)](../../releases)<br>
 Here you can download and use applications selected for this repository, which are enhanced with many functionalities that will certainly be useful to you.
 </div>
 
-## 🔥 Features
+<details>
+<summary><b>🔥 Features</b></summary>
 
 - 🛑 **Ad-blocking**: blocks all types of ads (who needs them anyway?).
 - 🚀 **Enhanced features**: squeezes more out of the app.
@@ -16,24 +18,25 @@ Here you can download and use applications selected for this repository, which a
 - 🔒 **Persistent**: patched app won't be updated or overwritten by Play Store.
 - 🔄 **Auto-updates**: supports automatic updates through [Obtainium](https://github.com/ImranR98/Obtainium) using individual configs (see app list below).
 - ✨ **And much more!**
+</details>
 
-## <a id="apps-list"></a> 📋 List of apps in this repository
+## 📋 List of apps in this repository
 
-Pre-built APKs are available for download from [this forked repository](https://github.com/ngbangg/builder-for-morphe#apps-list) or the Telegram channel:
+Pre-built APKs are available for download from [this forked repository](https://github.com/builder-for-morphe/builder-for-morphe.github.io/):
 
-[![Telegram Channel](https://img.shields.io/badge/Telegram_Channel-blue?style=social&logo=telegram)](https://t.me/builder_for_morphe)　[![Group](https://img.shields.io/badge/Group-blue?style=social&logo=telegram)](https://t.me/builder_for_morphe_chat)
+[![Telegram Channel](https://img.shields.io/badge/Telegram_Channel-blue?style=social&logo=telegram)](https://t.me/builder_for_morphe) [![Group](https://img.shields.io/badge/Group-blue?style=social&logo=telegram)](https://t.me/builder_for_morphe_chat)　[![Website](https://img.shields.io/badge/Website-blue?style=social&logo=google-chrome)](https://builder-for-morphe.github.io/)
 
 ## 🤖 Build Your Own APKs
 
 For maximum security, we recommend building your own APKs as follows:
 
 - 🍴 `Fork` [this repo](https://github.com/nvbangg/builder-for-morphe) (don't forget to ⭐ `Star` and 👀 `Watch` it)
-- (Optional) Customize the apps you want in [`config.toml`](config.toml)
+- (Optional) ⚙️ Customize the apps you want in [`config.toml`](config.toml)
   - See the guide in [`CONTRIBUTING.md`](CONTRIBUTING.md#%EF%B8%8F-configuration)
-  - Or simply remove the apps you don't use
-- Run the [CI workflow](../../actions/workflows/ci.yml)
+  - Browse all supported apps and patches [here](https://github.com/nvbangg/awesome-for-morphe#apps-patches)
+- 🚀 Run the [CI workflow](../../actions/workflows/ci.yml)
   - Make sure to allow and enable workflows first
-- Download your APKs from [Releases](../../releases)
+- ⬇️ Download your APKs from [Releases](../../releases)
 
 ## 📚 Documentation & Contributing
 
@@ -53,7 +56,7 @@ For full configuration reference, setup and contributing guide, see [CONTRIBUTIN
 
 ## 🤝 Acknowledgments
 
-This repository is based on the [krvstek/uni-apks](https://github.com/krvstek/uni-apks) template (GPL-3.0). See [all changes](https://github.com/nvbangg/builder-for-morphe/commits/main/?author=nvbangg):
+This repo is based on the [krvstek/uni-apks](https://github.com/krvstek/uni-apks) (GPL-3.0). See [all changes](https://github.com/nvbangg/builder-for-morphe/commits/main/?author=nvbangg):
 
 - Easily [build your own APKs](#-build-your-own-apks) just by customizing `config.toml` (no extra setup required)
   - No manual brand configuration needed in `ci.yml`
