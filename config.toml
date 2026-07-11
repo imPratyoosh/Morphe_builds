@@ -1,7 +1,7 @@
 strict-sigcheck = false
 
 [YouTube]
-enabled = true
+enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
@@ -9,7 +9,7 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 "github:MorpheApp/morphe-patches" = []
 
 [YT-Music]
-enabled = true
+enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 arch = "both"
@@ -18,7 +18,7 @@ arch = "both"
 "github:MorpheApp/morphe-patches" = []
 
 [Reddit]
-enabled = true
+enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 
@@ -26,41 +26,40 @@ uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 "github:MorpheApp/morphe-patches" = []
 
 [YouTube-Experimental]
-enabled = false
+enabled = true
 brand = "morphe-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+arch = "arm64-v8a"
 version = "21.26.360"
-patcher-args = "-e 'Change header' -Ocustom=icons/YouTube/header -e 'Custom branding' -OcustomIcon=icons/YouTube/branding -OcustomName='YouTube Morphe'"
 
 [YouTube-Experimental.patches]
-"github:MorpheApp/morphe-patches" = { version = "dev" }
+"github:MorpheApp/morphe-patches" = { version = "latest", exclude = ["Custom branding", "Enable debugging"] }
 
 [YT-Music-Experimental]
-enabled = false
+enabled = true
 brand = "morphe-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-arch = "both"
+arch = "arm64-v8a"
 version = "9.26.51"
-patcher-args = "-e 'Change header' -Ocustom=icons/Music/header -e 'Custom branding' -OcustomIcon=icons/Music/branding -OcustomName='Music Morphe'"
 
 [YT-Music-Experimental.patches]
-"github:MorpheApp/morphe-patches" = { version = "dev" }
+"github:MorpheApp/morphe-patches" = { version = "latest", exclude = ["Custom branding", "Enable debugging"] }
 
 [Reddit-Experimental]
-enabled = false
-brand = "morphe-dev"
+enabled = true
+brand = "morphe-adobo-dev"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 version = "2026.26.0"
-patcher-args = "-e 'Custom branding name for Reddit' -OappName='Reddit Morphe'"
 
 [Reddit-Experimental.patches]
-"github:MorpheApp/morphe-patches" = { version = "dev" }
+"github:MorpheApp/morphe-patches" = { version = "latest", include = ["Disable Play Store updates"] }
+"github:jkennethcarino/adobo" = { version = "dev", include = ["Hide awards", "Disable home feed auto-refresh", "Disable home screen redirect", "Colorize comment indent lines"], exclude = ["Disable home feed swipe", "Disable post detail swipe", "Disable screenshot banner", "Hide post view counts", "Hide Ask button from search bar", "Hide community highlights", "Hide prominent search bar", "Hide share count", "Hide upvote scores", "Hide user community badges", "Hide user flairs", "Open external links directly", "Remove ads and telemetry", "Sanitize share links"] }
 
 [X-Twitter]
-enabled = true
+enabled = false
 brand = "piko"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
 uptodown-dlurl = "https://twitter.en.uptodown.com/android"
@@ -70,7 +69,7 @@ uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 "gitlab:inotia00/x-shim" = []
 
 [Instagram]
-enabled = true
+enabled = false
 brand = "piko"
 github-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/instagram"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/instagram/instagram-instagram"
