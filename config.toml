@@ -27,7 +27,7 @@ uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 
 [YouTube-Experimental]
 enabled = true
-brand = "morphe-dev"
+brand = "YouTube-Morphe"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 changelog-keywords = ["YouTube"]
@@ -39,7 +39,7 @@ version = "21.26.360"
 
 [YT-Music-Experimental]
 enabled = true
-brand = "morphe-dev"
+brand = "Music-Morphe"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 changelog-keywords = ["YouTube Music"]
@@ -51,7 +51,7 @@ version = "9.26.51"
 
 [Reddit-Experimental]
 enabled = true
-brand = "morphe-adobo-dev"
+brand = "Reddit-Morphe"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 version = "2026.27.0"
@@ -62,7 +62,7 @@ version = "2026.27.0"
 
 [X-Twitter]
 enabled = true
-brand = "piko-x-shim"
+brand = "Twitter-Piko"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
 uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 changelog-keywords = ["Twitter"]
@@ -75,7 +75,7 @@ arch = "arm64-v8a"
 
 [Instagram]
 enabled = true
-brand = "piko"
+brand = "Instagram-Piko"
 github-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/instagram"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/instagram/instagram-instagram"
 uptodown-dlurl = "https://instagram.en.uptodown.com/android"
@@ -88,7 +88,7 @@ arch = "arm64-v8a"
 [Niagara-Launcher]
 enabled = true
 exclusive-patches = true
-brand = "hoo-dles"
+brand = "Niagara-launcher-hoodles"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
 uptodown-dlurl = "https://niagara-launcher.en.uptodown.com/android"
 changelog-keywords = ["Niagara Launcher"]
@@ -100,7 +100,7 @@ version = "latest"
 
 [Pinterest]
 enabled = true
-Brand = "browzomje"
+Brand = "Pinterest-Browzomje"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/pinterest/pinterest-one-destination-for-a-world-of-inspiration"
 uptodown-dlurl = "https://pinterest.en.uptodown.com/android"
 changelog-keywords = ["Pinterest"]
@@ -117,9 +117,11 @@ Brand = "Gboard-Adobo"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard/"
 uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
 changelog-keywords = ["Gboard"]
-version =  "17.0.10.880768217"
+version =  "17.0.10.880768217-release-arm64-v8a"
 arch = "arm64-v8a"
 
 [Gboard.patches]
 "github:jasonwu1994/Gboard-patches" = []
 "github:jkennethcarino/adobo" = { version = "dev", include = ["Enable access points menu redesign", "Enable voice typing in incognito"], exclude = ["Always-incognito mode"] }
+
+
