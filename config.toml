@@ -1,81 +1,86 @@
 strict-sigcheck = false
 
-[YouTube]
+[YouTube-Stable]
+brand = "YouTube-Stable"
 enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+arch = "arm64-v8a"
 
-[YouTube.patches]
-"github:MorpheApp/morphe-patches" = []
+[YouTube-Stable.patches]
+"github:MorpheApp/morphe-patches" = { exclude = ["Custom branding", "Enable debugging"] }
 
-[YT-Music]
+
+[YT-Music-Stable]
+brand = "YT-Music-Stable"
 enabled = false
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-arch = "both"
+arch = "arm64-v8a"
 
-[YT-Music.patches]
-"github:MorpheApp/morphe-patches" = []
+[YT-Music-Stable.patches]
+"github:MorpheApp/morphe-patches" = { exclude = ["Custom branding", "Enable debugging"] }
 
-[Reddit]
+[Reddit-Stable]
 enabled = false
+brand = "Reddit-Stable"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
 
-[Reddit.patches]
+[Reddit-Stable.patches]
 "github:MorpheApp/morphe-patches" = []
 
-[YouTube-Experimental]
+[YouTube]
 enabled = true
-brand = "YouTube-Morphe"
+brand = "YouTube"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 changelog-keywords = ["YouTube"]
 arch = "arm64-v8a"
-version = "21.26.360"
+version = "latest"
 
-[YouTube-Experimental.patches]
+[YouTube.patches]
 "github:MorpheApp/morphe-patches" = { version = "latest", exclude = ["Custom branding", "Enable debugging", "Disable play store updates"] }
 
-[YT-Music-Experimental]
+[YT-Music]
 enabled = true
-brand = "Music-Morphe"
+brand = "YT-Music"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 changelog-keywords = ["YouTube Music"]
 arch = "arm64-v8a"
-version = "9.26.51"
+version = "latest"
 
-[YT-Music-Experimental.patches]
+[YT-Music.patches]
 "github:MorpheApp/morphe-patches" = { version = "latest", exclude = ["Custom branding", "Enable debugging", "Disable play store updates"] }
 
-[Reddit-Experimental]
+[Reddit]
 enabled = true
-brand = "Reddit-Morphe"
+brand = "Reddit"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/redditinc/reddit"
 uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
-version = "2026.27.0"
+version = "latest"
 
-[Reddit-Experimental.patches]
+[Reddit.patches]
 "github:MorpheApp/morphe-patches" = { include = ["Disable play store updates"] }
 "github:jkennethcarino/adobo" = { version = "dev", include = ["Hide awards", "Disable home feed auto-refresh", "Disable home screen redirect", "Colorize comment indent lines"], exclude = ["Disable home feed swipe", "Disable post detail swipe", "Disable screenshot banner", "Hide post view counts", "Hide Ask button from search bar", "Hide community highlights", "Hide prominent search bar", "Hide share count", "Hide upvote scores", "Hide user community badges", "Hide user flairs", "Open external links directly", "Remove ads and telemetry", "Sanitize share links"] }
 
-[X-Twitter]
+[Twitter]
 enabled = true
-brand = "Twitter-Piko"
+brand = "Twitter"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter"
 uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 changelog-keywords = ["Twitter"]
 version = "12.7.1-release.0"
 arch = "arm64-v8a"
 
-[X-Twitter.patches]
+[Twitter.patches]
 "github:crimera/piko" = { version = "dev", include = ["Browse tweet object"] }
 "gitlab:inotia00/x-shim" = { version = "dev" }
 
 [Instagram]
 enabled = true
-brand = "Instagram-Piko"
+brand = "Instagram"
 github-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/instagram"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/instagram/instagram-instagram"
 uptodown-dlurl = "https://instagram.en.uptodown.com/android"
@@ -88,7 +93,7 @@ arch = "arm64-v8a"
 [Niagara-Launcher]
 enabled = true
 exclusive-patches = true
-brand = "Niagara-launcher-hoodles"
+brand = "Niagara-launcher"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/mellowdrop-studio/niagara-launcher-%f0%9f%94%b9-fresh-clean/"
 uptodown-dlurl = "https://niagara-launcher.en.uptodown.com/android"
 changelog-keywords = ["Niagara Launcher"]
@@ -100,7 +105,7 @@ version = "latest"
 
 [Pinterest]
 enabled = true
-Brand = "Pinterest-Browzomje"
+Brand = "Pinterest"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/pinterest/pinterest-one-destination-for-a-world-of-inspiration"
 uptodown-dlurl = "https://pinterest.en.uptodown.com/android"
 changelog-keywords = ["Pinterest"]
@@ -113,7 +118,7 @@ arch = "arm64-v8a"
 
 [Gboard]
 enabled = true
-Brand = "Gboard-Adobo"
+Brand = "Gboard"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard/"
 uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
 changelog-keywords = ["Gboard"]
