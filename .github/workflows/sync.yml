@@ -53,7 +53,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          IGNORE_LIST="${IGNORE_SYNC_FILES:-config.toml sig.txt}"
+          IGNORE_LIST="${IGNORE_SYNC_FILES:-config.toml sig.txt README.md .github/workflows/sync.yml}"
           MERGE_FAILED=false
           git merge --no-commit --no-ff upstream/main || MERGE_FAILED=true
 
