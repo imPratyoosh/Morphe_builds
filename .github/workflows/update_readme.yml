@@ -1,6 +1,5 @@
 name: Auto-Update README
 
-# This tells GitHub to wait until either of your main workflows finish
 on:
   workflow_run:
     workflows: ["CI", "Build APKs"] 
