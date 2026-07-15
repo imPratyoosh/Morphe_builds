@@ -12,101 +12,186 @@ Click on an app below to see detailed info.
 <summary><b>1. Niagara-Launcher</b></summary>
 
 * **App Version:** `1.16.7`
-* **Patch Bundle:** `patches-1.34.0.mpp`
+* **Patch Bundles:** `MorpheApp/morphe-patches, hoo-dles/morphe-patches`
+* **Patches Version:** `1.34.0., 1.39.0`
 
 * **Applied Patches (3):**
+  * `Disable Play Store updates` *(MorpheApp/morphe-patches)*
+  * `Enable Niagara Pro` *(MorpheApp/morphe-patches)*
+  * `Hide app icon` *(hoo-dles/morphe-patches)*
+</details>
+
+<details>
+<summary><b>2. YT-Music</b></summary>
+
+* **App Version:** `9.26.51`
+* **Patch Bundles:** `MorpheApp/morphe-patches`
+* **Patches Version:** `1.34.0.`
+
+* **Applied Patches (30):**
+  * `Bypass certificate checks`
+  * `Change header`
+  * `Change miniplayer color`
+  * `Change start page`
+  * `Check watch history domain name resolution`
+  * `Disable DRC audio`
+  * `Disable QUIC protocol`
+  * `Downloads`
+  * `Enable exclusive audio playback`
+  * `Enable forced miniplayer`
+  * `Enable swipe to dismiss miniplayer`
+  * `Force original audio`
+  * `GmsCore support`
+  * `Hide ads`
+  * `Hide buttons`
+  * `Hide filter bar`
+  * `Hide flyout menu components`
+  * `Hide layout components`
+  * `Hide music action buttons`
+  * `Miniplayer previous and next buttons`
+  * `Navigation bar`
+  * `Network proxy`
+  * `Permanent repeat`
+  * `Remove background playback restrictions`
+  * `Sanitize sharing links`
+  * `Scrobbling`
+  * `SponsorBlock`
+  * `Spoof video streams`
+  * `Theme`
+  * `Track crossfade`
+
+* **Excluded Patches (3):**
+  * `Custom branding`
   * `Disable Play Store updates`
-  * `Enable Niagara Pro`
-  * `Hide app icon`
+  * `Enable debugging`
 </details>
 
 <details>
-<summary><b>2. Twitter</b></summary>
+<summary><b>3. Instagram</b></summary>
 
-* **App Version:** `12.7.1-release.0`
-* **Patch Bundle:** `patches-3.8.0-dev.4.mpp`
+* **App Version:** `435.0.0.37.76`
+* **Patch Bundles:** `crimera/piko`
+* **Patches Version:** `3.8.0`
 
-* **Applied Patches (73):**
-  * `Abstract shim layer`
-  * `Abstract shim layer for method`
-  * `Abstract shim layer for native library`
-  * `Add ability to copy media link`
-  * `Block redirecting to X Lite`
-  * `Change app icon`
+* **Applied Patches (52):**
+  * `Add settings`
+  * `Allow user network certificate`
+  * `Amoled theme`
+  * `Change like animation`
+  * `Clone`
+  * `Copy comment`
+  * `Customise story ring size`
+  * `Customise story timestamp`
+  * `Disable Reels scrolling`
+  * `Disable ads`
+  * `Disable analytics`
+  * `Disable comments`
+  * `Disable discover people`
+  * `Disable double tap like`
+  * `Disable explore`
+  * `Disable highlights`
+  * `Disable screenshot detection`
+  * `Disable stories`
+  * `Disable story flipping`
+  * `Disable typing status`
+  * `Disable video autoplay`
+  * `Download media`
+  * `Download voice message`
+  * `External downloader`
+  * `Filter stories`
+  * `Friendship status indicator`
+  * `Hide group creation button on sharesheet`
+  * `Hide navigation buttons`
+  * `Hide notes tray`
+  * `Hide reshare button`
+  * `Hide stories tray`
+  * `Hide suggested content`
+  * `Improve image viewing`
+  * `Limit feed to following profiles`
+  * `Make ephemeral media permanent`
+  * `Mark chat as read manually`
+  * `More options on post`
+  * `More options on profile`
+  * `Open links externally`
+  * `Remove build expired popup`
+  * `Remove empty bottom space`
+  * `Sanitize share links`
+  * `Save media comment`
+  * `Stories audio autoplay`
+  * `Unlock Plus benefits`
+  * `Unlock developer options`
+  * `Unlock employee options`
+  * `Validate links`
+  * `View DMs anonymously`
+  * `View live anonymously`
+  * `View stories anonymously`
+  * `View story mentions`
+
+* **Excluded Patches (1):**
   * `Change version code`
-  * `Clear tracking params`
-  * `Control video auto scroll`
-  * `Custom download folder`
-  * `Custom emoji font`
-  * `Custom font`
-  * `Custom share menu`
-  * `Custom sharing domain`
-  * `Customise post font size`
-  * `Customize Inline action Bar items`
-  * `Customize Navigation Bar items`
-  * `Customize default reply sorting`
-  * `Customize explore tabs`
-  * `Customize notification tabs`
-  * `Customize profile tabs`
-  * `Customize search suggestions`
-  * `Customize search tab items`
-  * `Customize side bar items`
-  * `Customize timeline top bar`
-  * `Delete from database`
-  * `Disable auto timeline scroll on launch`
-  * `Disable chirp font`
-  * `Download patch`
-  * `Enable PiP mode automatically`
-  * `Enable Undo Posts`
-  * `Enable debug menu for posts`
-  * `Enable force HD videos`
-  * `Force enable translate`
-  * `Handle custom twitter links`
-  * `Hide Banner`
-  * `Hide Community Notes`
-  * `Hide FAB`
-  * `Hide FAB Menu Buttons`
-  * `Hide Live Threads`
-  * `Hide Recommended Users`
-  * `Hide badges from navigation bar icons`
-  * `Hide bookmark icon in timeline`
-  * `Hide community badges`
-  * `Hide followed by context`
-  * `Hide hidden replies`
-  * `Hide immersive player`
-  * `Hide nudge button`
-  * `Hide post metrics`
-  * `Hide promote button`
-  * `Hide recommendation items`
-  * `Hook feature flag`
-  * `Import/Export login token`
-  * `Legacy share links`
-  * `Log server response`
-  * `More information on profile`
-  * `Native downloader`
-  * `Native reader mode`
-  * `Native translator`
-  * `No shortened URL`
-  * `Pause search suggestions`
-  * `Remove Ads`
-  * `Remove premium upsell`
-  * `Remove search suggestions`
-  * `Remove view count`
-  * `Round off numbers`
-  * `Selectable Text`
-  * `Share Tweet as Image`
-  * `Show changelogs`
-  * `Show poll results`
-  * `Show post source label`
-  * `Show sensitive media`
-  * `Support external downloader`
 </details>
 
 <details>
-<summary><b>3. YouTube</b></summary>
+<summary><b>4. Gboard</b></summary>
+
+* **App Version:** `17.0.10.880768217-release-arm64-v8a`
+* **Patch Bundles:** `jkennethcarino/adobo, jasonwu1994/Gboard-patches`
+* **Patches Version:** `1.3.0, 1.14.0.`
+
+* **Applied Patches (26):**
+  * `AI Writing Tools` *(jkennethcarino/adobo)*
+  * `Add Gboard Signature Bypass` *(jkennethcarino/adobo)*
+  * `Chinese Online Voice Input` *(jkennethcarino/adobo)*
+  * `Clipboard Enhancements` *(jkennethcarino/adobo)*
+  * `Clipboard Entity Extraction` *(jkennethcarino/adobo)*
+  * `Clipboard Item Edit` *(jkennethcarino/adobo)*
+  * `Custom Symbols` *(jkennethcarino/adobo)*
+  * `Emojis, stickers & GIFs Tab Order` *(jkennethcarino/adobo)*
+  * `Enable Inline Autofill Suggestions` *(jkennethcarino/adobo)*
+  * `Enable OCR feature` *(jkennethcarino/adobo)*
+  * `Enable Undo/Redo feature` *(jkennethcarino/adobo)*
+  * `Enable access points menu redesign` *(jkennethcarino/adobo)*
+  * `Enable clipboard in incognito` *(jkennethcarino/adobo)*
+  * `Enable voice typing in incognito` *(jkennethcarino/adobo)*
+  * `English QWERTY Up-Flick Uppercase` *(jkennethcarino/adobo)*
+  * `Grammar Checker` *(jkennethcarino/adobo)*
+  * `Inline Suggestions` *(jkennethcarino/adobo)*
+  * `Key Shape Selection` *(jkennethcarino/adobo)*
+  * `Latin Globe Key Ignore Interval` *(jkennethcarino/adobo)*
+  * `Package Rename` *(jkennethcarino/adobo)*
+  * `Settings Homepage Override` *(jkennethcarino/adobo)*
+  * `Swipeable Custom Top Row` *(jkennethcarino/adobo)*
+  * `Web Clipboard` *(jkennethcarino/adobo)*
+  * `Zhuyin Bottom Row Key Sizes` *(jkennethcarino/adobo)*
+  * `Zhuyin Quick Traditional/Simplified Toggle` *(jkennethcarino/adobo)*
+  * `Zhuyin Slide Input` *(jkennethcarino/adobo)*
+
+* **Excluded Patches (1):**
+  * `Always-incognito mode` *(jkennethcarino/adobo)*
+</details>
+
+<details>
+<summary><b>5. Pinterest</b></summary>
+
+* **App Version:** `14.24.0`
+* **Patch Bundles:** `MorpheApp/morphe-patches, browzomje/browzomje-patches`
+* **Patches Version:** `1.34.0., 1.3.2.`
+
+* **Applied Patches (6):**
+  * `Copy direct link` *(MorpheApp/morphe-patches)*
+  * `Disable Play Store updates` *(MorpheApp/morphe-patches)*
+  * `Disable ads` *(MorpheApp/morphe-patches)*
+  * `Download video` *(MorpheApp/morphe-patches)*
+  * `Neutralize advertising ID` *(MorpheApp/morphe-patches)*
+  * `Set pin as wallpaper` *(MorpheApp/morphe-patches)*
+</details>
+
+<details>
+<summary><b>6. YouTube</b></summary>
 
 * **App Version:** `21.26.360`
-* **Patch Bundle:** `patches-1.34.0.mpp`
+* **Patch Bundles:** `MorpheApp/morphe-patches`
+* **Patches Version:** `1.34.0.`
 
 * **Applied Patches (70):**
   * `Add to queue`
@@ -187,194 +272,117 @@ Click on an app below to see detailed info.
 </details>
 
 <details>
-<summary><b>4. Reddit</b></summary>
+<summary><b>7. Reddit</b></summary>
 
 * **App Version:** `2026.28.0`
-* **Patch Bundle:** `patches-1.3.0-dev.8.mpp`
+* **Patch Bundles:** `jkennethcarino/adobo, MorpheApp/morphe-patches`
+* **Patches Version:** `1.3.0, 1.34.0.`
 
 * **Applied Patches (5):**
-  * `Colorize comment indent lines`
-  * `Disable Play Store updates`
-  * `Disable home feed auto-refresh`
-  * `Disable home screen redirect`
-  * `Hide awards`
+  * `Colorize comment indent lines` *(jkennethcarino/adobo)*
+  * `Disable Play Store updates` *(jkennethcarino/adobo)*
+  * `Disable home feed auto-refresh` *(jkennethcarino/adobo)*
+  * `Disable home screen redirect` *(jkennethcarino/adobo)*
+  * `Hide awards` *(jkennethcarino/adobo)*
 
 * **Excluded Patches (14):**
-  * `Disable home feed swipe`
-  * `Disable post detail swipe`
-  * `Disable screenshot banner`
-  * `Hide Ask button from search bar`
-  * `Hide community highlights`
-  * `Hide post view counts`
-  * `Hide prominent search bar`
-  * `Hide share count`
-  * `Hide upvote scores`
-  * `Hide user community badges`
-  * `Hide user flairs`
-  * `Open external links directly`
-  * `Remove ads and telemetry`
-  * `Sanitize share links`
+  * `Disable home feed swipe` *(jkennethcarino/adobo)*
+  * `Disable post detail swipe` *(jkennethcarino/adobo)*
+  * `Disable screenshot banner` *(jkennethcarino/adobo)*
+  * `Hide Ask button from search bar` *(jkennethcarino/adobo)*
+  * `Hide community highlights` *(jkennethcarino/adobo)*
+  * `Hide post view counts` *(jkennethcarino/adobo)*
+  * `Hide prominent search bar` *(jkennethcarino/adobo)*
+  * `Hide share count` *(jkennethcarino/adobo)*
+  * `Hide upvote scores` *(jkennethcarino/adobo)*
+  * `Hide user community badges` *(jkennethcarino/adobo)*
+  * `Hide user flairs` *(jkennethcarino/adobo)*
+  * `Open external links directly` *(jkennethcarino/adobo)*
+  * `Remove ads and telemetry` *(jkennethcarino/adobo)*
+  * `Sanitize share links` *(jkennethcarino/adobo)*
 </details>
 
 <details>
-<summary><b>5. YT-Music</b></summary>
+<summary><b>8. Twitter</b></summary>
 
-* **App Version:** `9.26.51`
-* **Patch Bundle:** `patches-1.34.0.mpp`
+* **App Version:** `12.7.1-release.0`
+* **Patch Bundles:** `crimera/piko, Unknown/Repo`
+* **Patches Version:** `3.8.0, 1.7.0.`
 
-* **Applied Patches (30):**
-  * `Bypass certificate checks`
-  * `Change header`
-  * `Change miniplayer color`
-  * `Change start page`
-  * `Check watch history domain name resolution`
-  * `Disable DRC audio`
-  * `Disable QUIC protocol`
-  * `Downloads`
-  * `Enable exclusive audio playback`
-  * `Enable forced miniplayer`
-  * `Enable swipe to dismiss miniplayer`
-  * `Force original audio`
-  * `GmsCore support`
-  * `Hide ads`
-  * `Hide buttons`
-  * `Hide filter bar`
-  * `Hide flyout menu components`
-  * `Hide layout components`
-  * `Hide music action buttons`
-  * `Miniplayer previous and next buttons`
-  * `Navigation bar`
-  * `Network proxy`
-  * `Permanent repeat`
-  * `Remove background playback restrictions`
-  * `Sanitize sharing links`
-  * `Scrobbling`
-  * `SponsorBlock`
-  * `Spoof video streams`
-  * `Theme`
-  * `Track crossfade`
-
-* **Excluded Patches (3):**
-  * `Custom branding`
-  * `Disable Play Store updates`
-  * `Enable debugging`
-</details>
-
-<details>
-<summary><b>6. Instagram</b></summary>
-
-* **App Version:** `435.0.0.37.76`
-* **Patch Bundle:** `patches-3.8.0-dev.4.mpp`
-
-* **Applied Patches (52):**
-  * `Add settings`
-  * `Allow user network certificate`
-  * `Amoled theme`
-  * `Change like animation`
-  * `Clone`
-  * `Copy comment`
-  * `Customise story ring size`
-  * `Customise story timestamp`
-  * `Disable Reels scrolling`
-  * `Disable ads`
-  * `Disable analytics`
-  * `Disable comments`
-  * `Disable discover people`
-  * `Disable double tap like`
-  * `Disable explore`
-  * `Disable highlights`
-  * `Disable screenshot detection`
-  * `Disable stories`
-  * `Disable story flipping`
-  * `Disable typing status`
-  * `Disable video autoplay`
-  * `Download media`
-  * `Download voice message`
-  * `External downloader`
-  * `Filter stories`
-  * `Friendship status indicator`
-  * `Hide group creation button on sharesheet`
-  * `Hide navigation buttons`
-  * `Hide notes tray`
-  * `Hide reshare button`
-  * `Hide stories tray`
-  * `Hide suggested content`
-  * `Improve image viewing`
-  * `Limit feed to following profiles`
-  * `Make ephemeral media permanent`
-  * `Mark chat as read manually`
-  * `More options on post`
-  * `More options on profile`
-  * `Open links externally`
-  * `Remove build expired popup`
-  * `Remove empty bottom space`
-  * `Sanitize share links`
-  * `Save media comment`
-  * `Stories audio autoplay`
-  * `Unlock Plus benefits`
-  * `Unlock developer options`
-  * `Unlock employee options`
-  * `Validate links`
-  * `View DMs anonymously`
-  * `View live anonymously`
-  * `View stories anonymously`
-  * `View story mentions`
-
-* **Excluded Patches (1):**
-  * `Change version code`
-</details>
-
-<details>
-<summary><b>7. Pinterest</b></summary>
-
-* **App Version:** `14.24.0`
-* **Patch Bundle:** `patches-1.34.0.mpp`
-
-* **Applied Patches (6):**
-  * `Copy direct link`
-  * `Disable Play Store updates`
-  * `Disable ads`
-  * `Download video`
-  * `Neutralize advertising ID`
-  * `Set pin as wallpaper`
-</details>
-
-<details>
-<summary><b>8. Gboard</b></summary>
-
-* **App Version:** `17.0.10.880768217-release-arm64-v8a`
-* **Patch Bundle:** `patches-1.14.0.mpp`
-
-* **Applied Patches (26):**
-  * `AI Writing Tools`
-  * `Add Gboard Signature Bypass`
-  * `Chinese Online Voice Input`
-  * `Clipboard Enhancements`
-  * `Clipboard Entity Extraction`
-  * `Clipboard Item Edit`
-  * `Custom Symbols`
-  * `Emojis, stickers & GIFs Tab Order`
-  * `Enable Inline Autofill Suggestions`
-  * `Enable OCR feature`
-  * `Enable Undo/Redo feature`
-  * `Enable access points menu redesign`
-  * `Enable clipboard in incognito`
-  * `Enable voice typing in incognito`
-  * `English QWERTY Up-Flick Uppercase`
-  * `Grammar Checker`
-  * `Inline Suggestions`
-  * `Key Shape Selection`
-  * `Latin Globe Key Ignore Interval`
-  * `Package Rename`
-  * `Settings Homepage Override`
-  * `Swipeable Custom Top Row`
-  * `Web Clipboard`
-  * `Zhuyin Bottom Row Key Sizes`
-  * `Zhuyin Quick Traditional/Simplified Toggle`
-  * `Zhuyin Slide Input`
-
-* **Excluded Patches (1):**
-  * `Always-incognito mode`
+* **Applied Patches (73):**
+  * `Abstract shim layer` *(crimera/piko)*
+  * `Abstract shim layer for method` *(crimera/piko)*
+  * `Abstract shim layer for native library` *(crimera/piko)*
+  * `Add ability to copy media link` *(crimera/piko)*
+  * `Block redirecting to X Lite` *(crimera/piko)*
+  * `Change app icon` *(crimera/piko)*
+  * `Change version code` *(crimera/piko)*
+  * `Clear tracking params` *(crimera/piko)*
+  * `Control video auto scroll` *(crimera/piko)*
+  * `Custom download folder` *(crimera/piko)*
+  * `Custom emoji font` *(crimera/piko)*
+  * `Custom font` *(crimera/piko)*
+  * `Custom share menu` *(crimera/piko)*
+  * `Custom sharing domain` *(crimera/piko)*
+  * `Customise post font size` *(crimera/piko)*
+  * `Customize Inline action Bar items` *(crimera/piko)*
+  * `Customize Navigation Bar items` *(crimera/piko)*
+  * `Customize default reply sorting` *(crimera/piko)*
+  * `Customize explore tabs` *(crimera/piko)*
+  * `Customize notification tabs` *(crimera/piko)*
+  * `Customize profile tabs` *(crimera/piko)*
+  * `Customize search suggestions` *(crimera/piko)*
+  * `Customize search tab items` *(crimera/piko)*
+  * `Customize side bar items` *(crimera/piko)*
+  * `Customize timeline top bar` *(crimera/piko)*
+  * `Delete from database` *(crimera/piko)*
+  * `Disable auto timeline scroll on launch` *(crimera/piko)*
+  * `Disable chirp font` *(crimera/piko)*
+  * `Download patch` *(crimera/piko)*
+  * `Enable PiP mode automatically` *(crimera/piko)*
+  * `Enable Undo Posts` *(crimera/piko)*
+  * `Enable debug menu for posts` *(crimera/piko)*
+  * `Enable force HD videos` *(crimera/piko)*
+  * `Force enable translate` *(crimera/piko)*
+  * `Handle custom twitter links` *(crimera/piko)*
+  * `Hide Banner` *(crimera/piko)*
+  * `Hide Community Notes` *(crimera/piko)*
+  * `Hide FAB` *(crimera/piko)*
+  * `Hide FAB Menu Buttons` *(crimera/piko)*
+  * `Hide Live Threads` *(crimera/piko)*
+  * `Hide Recommended Users` *(crimera/piko)*
+  * `Hide badges from navigation bar icons` *(crimera/piko)*
+  * `Hide bookmark icon in timeline` *(crimera/piko)*
+  * `Hide community badges` *(crimera/piko)*
+  * `Hide followed by context` *(crimera/piko)*
+  * `Hide hidden replies` *(crimera/piko)*
+  * `Hide immersive player` *(crimera/piko)*
+  * `Hide nudge button` *(crimera/piko)*
+  * `Hide post metrics` *(crimera/piko)*
+  * `Hide promote button` *(crimera/piko)*
+  * `Hide recommendation items` *(crimera/piko)*
+  * `Hook feature flag` *(crimera/piko)*
+  * `Import/Export login token` *(crimera/piko)*
+  * `Legacy share links` *(crimera/piko)*
+  * `Log server response` *(crimera/piko)*
+  * `More information on profile` *(crimera/piko)*
+  * `Native downloader` *(crimera/piko)*
+  * `Native reader mode` *(crimera/piko)*
+  * `Native translator` *(crimera/piko)*
+  * `No shortened URL` *(crimera/piko)*
+  * `Pause search suggestions` *(crimera/piko)*
+  * `Remove Ads` *(crimera/piko)*
+  * `Remove premium upsell` *(crimera/piko)*
+  * `Remove search suggestions` *(crimera/piko)*
+  * `Remove view count` *(crimera/piko)*
+  * `Round off numbers` *(crimera/piko)*
+  * `Selectable Text` *(crimera/piko)*
+  * `Share Tweet as Image` *(crimera/piko)*
+  * `Show changelogs` *(crimera/piko)*
+  * `Show poll results` *(crimera/piko)*
+  * `Show post source label` *(crimera/piko)*
+  * `Show sensitive media` *(crimera/piko)*
+  * `Support external downloader` *(crimera/piko)*
 </details>
 
 ---
