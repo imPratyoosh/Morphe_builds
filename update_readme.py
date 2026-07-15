@@ -2,25 +2,9 @@ import os
 import re
 import sys
 
-# We use tomllib to read your config.toml and map patches to their owners!
-try:
-    import tomllib
-except ImportError:
-    print("Error: Python 3.11+ is required. Please update python-version to '3.11' in your workflow.")
-    sys.exit(1)
-
 LOG_FILE = 'build.log'
 TEMPLATE_FILE = 'README.template.md'
 OUTPUT_FILE = 'README.md'
-CONFIG_FILE = 'config.toml'
-
-# Load your config file to act as a map for multi-bundle apps
-config_data = {}
-try:
-    with open(CONFIG_FILE, 'rb') as f:
-        config_data = tomllib.load(f)
-except FileNotFoundError:
-    print(f"Warning: {CONFIG_FILE} not found. Multi-bundle tagging may fallback to primary bundle.")
 
 apps_data = {}
 current_app = None
@@ -31,24 +15,6 @@ def clean_terminal_formatting(text):
     text = ansi_escape.sub('', text)
     text = re.sub(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z\s+', '', text)
     return text.strip()
-
-def get_patch_repo(patch_name, app_name, config, bundles):
-    """Maps a patch to its source bundle using your config.toml rules."""
-    if config and app_name in config and 'patches' in config[app_name]:
-        for source, details in config[app_name]['patches'].items():
-            # Clean up the "github:" prefix
-            clean_source = source.replace('github:', '').replace('gitlab:', '')
-            if isinstance(details, dict):
-                if patch_name in details.get('include', []) or patch_name in details.get('exclude', []):
-                    return clean_source
-            elif isinstance(details, list):
-                if patch_name in details:
-                    return clean_source
-                    
-    # If not explicitly included in config (like a default patch), assume primary bundle
-    if len(bundles) >= 1:
-        return bundles[0]['repo']
-    return "Unknown Bundle"
 
 # 1. Parse the log file line by line
 try:
@@ -145,10 +111,7 @@ for index, (app_name, data) in enumerate(apps_data.items(), start=1):
     apps_md += f"* **Applied Patches ({len(applied)}):**\n"
     if applied:
         for patch in sorted(applied):
-            # Only append the (Owner/repo) tag if the app actually uses more than 1 bundle!
-            repo = get_patch_repo(patch, app_name, config_data, bundles)
-            tag = f" *({repo})*" if repo and len(bundles) > 1 else ""
-            apps_md += f"  * `{patch}`{tag}\n"
+            apps_md += f"  * `{patch}`\n"
     else:
         apps_md += "  * `No patches detected.`\n"
         
@@ -156,9 +119,7 @@ for index, (app_name, data) in enumerate(apps_data.items(), start=1):
     if excluded:
         apps_md += f"\n* **Excluded Patches ({len(excluded)}):**\n"
         for patch in sorted(excluded):
-            repo = get_patch_repo(patch, app_name, config_data, bundles)
-            tag = f" *({repo})*" if repo and len(bundles) > 1 else ""
-            apps_md += f"  * `{patch}`{tag}\n"
+            apps_md += f"  * `{patch}`\n"
             
     apps_md += "</details>\n\n"
 
@@ -176,4 +137,4 @@ final_readme = template.replace('{{APPS_LIST}}', apps_md.strip())
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
     f.write(final_readme)
 
-print("README.md successfully updated with full version and patch tracking!")
+print("README.md successfully updated with clean patch lists!")
