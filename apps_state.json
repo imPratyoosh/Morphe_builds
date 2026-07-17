@@ -221,15 +221,15 @@
         ]
     },
     "Niagara-Launcher": {
-        "version": "1.16.7",
+        "version": "1.16.15",
         "bundles": [
             {
                 "repo": "hoo-dles/morphe-patches",
-                "version": "1.39.0"
+                "version": "1.40.0"
             },
             {
                 "repo": "MorpheApp/morphe-patches",
-                "version": "1.34.0."
+                "version": "1.35.0."
             }
         ],
         "applied": [
@@ -243,12 +243,12 @@
         "version": "2026.28.0",
         "bundles": [
             {
-                "repo": "jkennethcarino/adobo",
-                "version": "1.3.0"
-            },
-            {
                 "repo": "MorpheApp/morphe-patches",
                 "version": "1.35.0."
+            },
+            {
+                "repo": "jkennethcarino/adobo",
+                "version": "1.3.0"
             }
         ],
         "applied": [
@@ -351,7 +351,7 @@
         "bundles": [
             {
                 "repo": "MorpheApp/morphe-patches",
-                "version": "1.34.0."
+                "version": "1.35.0."
             },
             {
                 "repo": "browzomje/browzomje-patches",
@@ -416,12 +416,12 @@
         "version": "12.7.1-release.0",
         "bundles": [
             {
-                "repo": "inotia00/x-shim",
-                "version": "1.7.0."
-            },
-            {
                 "repo": "crimera/piko",
                 "version": "3.8.0"
+            },
+            {
+                "repo": "inotia00/x-shim",
+                "version": "1.7.0."
             }
         ],
         "applied": [
