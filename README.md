@@ -12,8 +12,8 @@ Click on an app below to see detailed info.
 <summary><b>1. Gboard</b></summary>
 
 * **App Version:** `17.0.10.880768217-release-arm64-v8a`
-* **Patch Bundles:** `jasonwu1994/Gboard-patches, jkennethcarino/adobo`
-* **Patches Version:** `1.14.0., 1.3.0`
+* **Patch Bundles:** `jkennethcarino/adobo, jasonwu1994/Gboard-patches`
+* **Patches Version:** `1.3.0, 1.14.0.`
 
 * **Applied Patches (26):**
   * `AI Writing Tools`
@@ -144,16 +144,31 @@ Click on an app below to see detailed info.
 <details>
 <summary><b>5. Reddit</b></summary>
 
-* **App Version:** `2026.29.0`
+* **App Version:** `2026.28.0`
 * **Patch Bundles:** `ch3thanhs/stylus, MorpheApp/morphe-patches, jkennethcarino/adobo`
 * **Patches Version:** `1.0.0., 1.35.0., 1.3.0`
 
-* **Applied Patches (5):**
+* **Applied Patches (20):**
   * `Colorize comment indent lines`
   * `Disable home feed auto-refresh`
   * `Disable home screen redirect`
+  * `Disable modern home`
+  * `Disable screenshot popup`
+  * `Force system font`
+  * `Hide Ask button`
+  * `Hide Trending shelves`
+  * `Hide ads`
   * `Hide awards`
+  * `Hide communities shelf`
   * `Hide community menu badge`
+  * `Hide navigation buttons`
+  * `Hide sidebar components`
+  * `Open links directly`
+  * `Open links externally`
+  * `Remove subreddit dialog`
+  * `Sanitize sharing links`
+  * `Show view count`
+  * `Spoof signature`
 
 * **Excluded Patches (5):**
   * `Disable screenshot banner`
@@ -167,8 +182,8 @@ Click on an app below to see detailed info.
 <summary><b>6. Twitter</b></summary>
 
 * **App Version:** `12.7.1-release.0`
-* **Patch Bundles:** `inotia00/x-shim, crimera/piko`
-* **Patches Version:** `1.7.0., 3.8.0`
+* **Patch Bundles:** `crimera/piko, inotia00/x-shim`
+* **Patches Version:** `3.8.0, 1.7.0.`
 
 * **Applied Patches (73):**
   * `Abstract shim layer`
