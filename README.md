@@ -145,8 +145,8 @@ Click on an app below to see detailed info.
 <summary><b>5. Reddit</b></summary>
 
 * **App Version:** `2026.28.0`
-* **Patch Bundles:** `MorpheApp/morphe-patches, jkennethcarino/adobo`
-* **Patches Version:** `1.35.0., 1.3.0`
+* **Patch Bundles:** `jkennethcarino/adobo, MorpheApp/morphe-patches`
+* **Patches Version:** `1.3.0, 1.35.0.`
 
 * **Applied Patches (19):**
   * `Colorize comment indent lines`
@@ -313,14 +313,15 @@ Click on an app below to see detailed info.
 
 * **App Version:** `9.15.51`
 * **Patch Bundles:** `MorpheApp/morphe-patches`
-* **Patches Version:** `1.35.0.`
+* **Patches Version:** `1.36.0`
 
-* **Applied Patches (33):**
+* **Applied Patches (34):**
   * `Bypass certificate checks`
   * `Change header`
   * `Change miniplayer color`
   * `Change start page`
   * `Check watch history domain name resolution`
+  * `Crossfade`
   * `Disable DRC audio`
   * `Disable QUIC protocol`
   * `Disable dislike redirection`
@@ -342,13 +343,13 @@ Click on an app below to see detailed info.
   * `Remember repeat state`
   * `Remember shuffle state`
   * `Remove background playback restrictions`
+  * `Return YouTube Dislike`
   * `Sanitize sharing links`
   * `Scrobbling`
   * `SponsorBlock`
   * `Spoof app version`
   * `Spoof video streams`
   * `Theme`
-  * `Track crossfade`
 
 * **Excluded Patches (3):**
   * `Custom branding`
@@ -446,7 +447,7 @@ Click on an app below to see detailed info.
 
 * **App Version:** `21.04.223`
 * **Patch Bundles:** `MorpheApp/morphe-patches`
-* **Patches Version:** `1.35.0.`
+* **Patches Version:** `1.36.0`
 
 * **Applied Patches (70):**
   * `Add to queue`
