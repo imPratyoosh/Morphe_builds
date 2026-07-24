@@ -146,11 +146,12 @@ Click on an app below to see detailed info.
 <summary><b>5. Reddit</b></summary>
 
 * **App Version:** `2026.28.0`
-* **Patch Bundles:** `ch3thanhs/stylus, MorpheApp/morphe-patches, jkennethcarino/adobo`
-* **Patches Version:** `1.0.1., 1.35.0., 1.3.0`
+* **Patch Bundles:** `jkennethcarino/adobo, MorpheApp/morphe-patches`
+* **Patches Version:** `1.3.0, 1.36.0.`
 
-* **Applied Patches (20):**
+* **Applied Patches (21):**
   * `Colorize comment indent lines`
+  * `Custom font`
   * `Disable home feed auto-refresh`
   * `Disable home screen redirect`
   * `Disable modern home`
@@ -399,7 +400,7 @@ Click on an app below to see detailed info.
 
 ## 📥 Installation Guide
 
-1. **Download the APK:** Go to my [Releases](https://github.com/imPratyoosh/Morphe_Builds/releases) page and download the `.apk` files you want.
+1. **Download the APK:** Go to my [Releases](https://github.com/imPratyoosh/Advanced-Morphe-Builder/releases) page and download the `.apk` files you want.
 2. **Install [MicroG](https://github.com/MorpheApp/MicroG-RE/releases/latest):** If you are installing patched YouTube & YouTube Music, MicroG is required.
 4. **Install the App:** Open the downloaded `.apk` file and install it. *(Note: You may need to allow "Install from unknown sources" in your Android settings).*
 5. **Enjoy:** Open the app, log in (if required), and configure your Morphe settings inside the app.
@@ -407,7 +408,8 @@ Click on an app below to see detailed info.
 ---
 
 ## 🤝 Credits & Thanks
-* [nvbangg](https://github.com/nvbangg) for the original Morphe automated builder.
+* [krvstek/uni-apks](https://github.com/krvstek/uni-apks)
+* [nvbangg/builder-for-morphe](https://github.com/nvbangg/builder-for-morphe)
 * The Morphe developers and open-source patch maintainers.
 
 ## Notice
